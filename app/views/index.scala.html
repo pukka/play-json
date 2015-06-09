@@ -1,7 +1,12 @@
-@(message: String)
+@(tasks: com.fasterxml.jackson.databind.JsonNode, form: Form[Forms.TaskForm])
+@import com.fasterxml.jackson.databind.JsonNode
+@main("さんぷる") {
+<h1>さんぷる</h1>
 
-@main("Welcome to Play") {
+  @tasks
 
-    @play20.welcome(message, style = "Java")
-
+  <form action="@routes.Application.addTask()" method="post">
+    <input type="text" name="label">
+    <button type="submit">作成</button>
+  </form>
 }
