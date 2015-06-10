@@ -1,9 +1,18 @@
-@(tasks: com.fasterxml.jackson.databind.JsonNode, form: Form[Forms.TaskForm])
+@(tasks: com.fasterxml.jackson.databind.JsonNode,
+form: Form[Forms.TaskForm])
 @import com.fasterxml.jackson.databind.JsonNode
+
 @main("さんぷる") {
 <h1>さんぷる</h1>
 
-  @tasks
+<ul>
+  @for(task <- tasks.findValuesAsText("label").toArray()) {
+    <li>
+      @task
+    </li>
+  }
+</ul>
+
 
   <form action="@routes.Application.addTask()" method="post">
     <input type="text" name="label">
