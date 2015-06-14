@@ -4,10 +4,6 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
-
-
-
 import play.api.mvc.*;
 import play.data.validation.Constraints.Required;
 
@@ -39,9 +35,9 @@ public class Task extends Model {
       task.label = addData.label;
       task.save();
     }
-    public static String selectlabel(Long id){
-        Task task  = Task.find.ref(id);
-        return task.label;
+    public static  JsonNode selectlabel(Forms.SearchForm data){
+    	Task task  = Task.find.ref(data.id);
+        return Json.toJson(task);
     }
 
 }
