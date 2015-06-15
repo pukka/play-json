@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+
 import play.api.mvc.*;
 import play.data.validation.Constraints.Required;
 
@@ -26,18 +28,25 @@ public class Task extends Model {
 
 
     public static JsonNode all() {
-      List<Task> tasks = find.all();
-      return Json.toJson(tasks);
+        List<Task> tasks = find.all();
+        return Json.toJson(tasks);
     }
 
     public static void create(Forms.TaskForm addData) {
-      Task task = new Task();
-      task.label = addData.label;
-      task.save();
+        Task task = new Task();
+        task.label = addData.label;
+        task.save();
     }
     public static  JsonNode selectlabel(Forms.SearchForm data){
     	Task task  = Task.find.ref(data.id);
         return Json.toJson(task);
+    }
+    public static void change(Forms.UpdateForm data) {
+    	long num=Long.parseLong(data.id);
+    	Task task = new Task();
+    	task.id = num;
+    	task.label = data.task;
+        task.update();
     }
 
     public static void deletelabel(Forms.DeleteForm data) {
@@ -47,3 +56,4 @@ public class Task extends Model {
 
 
 }
+
