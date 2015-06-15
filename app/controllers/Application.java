@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.List;
 import controllers.Forms;
 import controllers.routes;
 import play.*;
@@ -16,8 +17,10 @@ public class Application extends Controller {
 
     static Form<Forms.SearchForm> searchForm = Form.form(Forms.SearchForm.class);
 
+    static Form<Forms.DeleteForm> deleteForm = Form.form(Forms.DeleteForm.class);
+
     public Result index() {
-        return ok(index.render(Task.all(),taskForm, searchForm));
+        return ok(index.render(Task.all(),taskForm, searchForm, deleteForm));
     }
 
     public Result addTask() {
@@ -33,4 +36,11 @@ public class Application extends Controller {
 
         return ok(search.render(json));
     }
-}
+
+    public Result deleteJson() {
+    	Form<Forms.DeleteForm>filledForm = deleteForm.bindFromRequest();
+    	Task.deletelabel(filledForm.get());
+
+    	return redirect(routes.Application.index());
+    }
+ }

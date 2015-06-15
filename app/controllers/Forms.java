@@ -13,5 +13,9 @@ public class Forms extends Controller {
 	public static class SearchForm {
 		public Long id;
 	}
+
+    public static class DeleteForm {
+        public Long deleteId;
+    }
 }
 

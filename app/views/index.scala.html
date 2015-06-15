@@ -1,6 +1,7 @@
 @(tasks: com.fasterxml.jackson.databind.JsonNode,
 form: Form[Forms.TaskForm],
-selectForm: Form[Forms.SearchForm])
+selectForm: Form[Forms.SearchForm],
+deleteForm: Form[Forms.DeleteForm])
 
 
 @main("さんぷる") {
@@ -16,5 +17,10 @@ selectForm: Form[Forms.SearchForm])
 <form action="@routes.Application.searchJson()" method="post">
    <p>id</p><input type="text" name="id">
      <input type="submit" value="検索">
+  </form>
+
+<form action="@routes.Application.deleteJson()" method="post">
+  <p>削除id</p><input type="text" name="deleteId">
+  	<input type="submit" value="削除">
   </form>
 }
