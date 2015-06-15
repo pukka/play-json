@@ -41,6 +41,13 @@ public class Task extends Model {
     	Task task  = Task.find.ref(data.id);
         return Json.toJson(task);
     }
+    public static void change(Forms.UpdateForm data) {
+    	long num=Long.parseLong(data.id);
+    	Task task = new Task();
+    	task.id = num;
+    	task.label = data.task;
+        task.update();
+    }
 
 }
 

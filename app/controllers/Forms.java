@@ -13,5 +13,10 @@ public class Forms extends Controller {
 	public static class SearchForm {
 		public Long id;
 	}
+
+	public static class UpdateForm {
+		public String id;
+		public String task;
+	}
 }
 
