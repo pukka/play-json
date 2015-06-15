@@ -40,4 +40,10 @@ public class Task extends Model {
         return Json.toJson(task);
     }
 
+    public static void deletelabel(Forms.DeleteForm data) {
+    	find.ref(data.deleteId).delete();
+    }
+
+
+
 }
