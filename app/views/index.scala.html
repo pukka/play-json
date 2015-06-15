@@ -9,12 +9,12 @@ selectForm: Form[Forms.SearchForm])
 @tasks
 
   <form action="@routes.Application.addTask()" method="post">
-    <input type="text" name="label">
-    <button type="submit">作成</button>
-   </form>
+      <input type="text" name="label">
+      <button type="submit">作成</button>
+  </form>
 
 <form action="@routes.Application.searchJson()" method="post">
-   <p>id</p><input type="text" name="id">
+     <p>id</p><input type="text" name="id">
      <input type="submit" value="検索">
   </form>
 }

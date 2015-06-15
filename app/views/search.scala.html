@@ -1,7 +1,20 @@
-@(data:com.fasterxml.jackson.databind.JsonNode)
+@(tasks: com.fasterxml.jackson.databind.JsonNode,
+form: Form[Forms.TaskForm],
+selectForm: Form[Forms.SearchForm])
 
 @main("さんぷる") {
-<h1>さんぷる</h1>
-    @data<br>
-    <a href="/">トップへ戻る</a>
+<ul>
+  @for(task <- tasks.findValuesAsText("label").toArray()) {
+    <li>
+    <form action="@routes.Application.addTask()" method="post">
+       <input type="text" name="task" class="form-control" value="@task">
+       <button type="submit">更新</button>
+    </form>
+    </li>
+  }
+</ul>
+
+ <a href="/">トップへ戻る</a>
+
 }
+
