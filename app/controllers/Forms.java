@@ -14,8 +14,14 @@ public class Forms extends Controller {
 		public Long id;
 	}
 
+
     public static class DeleteForm {
         public Long deleteId;
     }
+
+	public static class UpdateForm {
+		public String id;
+		public String task;
+	}
 }
 
