@@ -6,6 +6,9 @@ deleteForm: Form[Forms.DeleteForm])
 
 @main("さんぷる") {
 
+<script>
+</script>
+
 <h1>さんぷる</h1>
 
 <ul>
@@ -22,8 +25,7 @@ deleteForm: Form[Forms.DeleteForm])
   </form>
 
 <form action="@routes.Application.searchJson()" method="post">
-   <p>IDによる検索</p><input type="text" name="id">
-     <p>id</p><input type="text" name="id">
+     <p>IDによる検索</p><input type="text" name="id">
      <input type="submit" value="検索">
   </form>
 

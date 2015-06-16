@@ -1,0 +1,31 @@
+@(users: List[User])
+
+@main("さんぷる") {
+<script>
+</script>
+<h1>さんぷる</h1>
+
+  <h1>ユーザ一覧</h1>
+
+      <thead>
+        <tr>
+          <th>名前</th>
+	  <th>パスワード</th>
+	  <th>メールアドレス</th>
+	  <th>管理者</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        @for(user <- users) {
+	    <tr>
+          <td> @user.name </td>
+	      <td> @user.password </td>
+	      <td> @user.email </td>
+	      <td></td>
+        </tr>
+        }
+       </tbody>
+
+</div>
+}
