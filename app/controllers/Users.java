@@ -15,8 +15,34 @@ import play.libs.Json;
 import play.mvc.Http.Session;
 
 public class Users extends Controller {
+
+
     static Form<Forms.Login> loginForm = Form.form(Forms.Login.class);
-    // static Form<Forms.newUser> userForm = Form.form(Forms.newUser.class);
+
+    static Form<Forms.newUser> userForm = Form.form(Forms.newUser.class);
+
+    public  Result newUser() {
+
+    	return ok(newUser.render(userForm));
+
+    }
+
+    public  Result addUser() {
+    	Form<Forms.newUser> filledForm = userForm.bindFromRequest();
+    	if (filledForm.hasErrors()) {
+    		return badRequest(newUser.render(filledForm));
+    	}
+    	else {
+    		User.create(filledForm.get());
+    		return redirect(routes.Users.allUsers());
+    	}
+    }
+
+    public Result allUsers() {
+
+    	return ok(showUser.render(User.all()));
+
+    }
 
     /** ログイン用のメソッドです。 */
     public Result login(){
@@ -34,3 +60,4 @@ public class Users extends Controller {
 	return redirect(routes.Application.index());
     }
 }
+

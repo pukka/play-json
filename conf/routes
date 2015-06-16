@@ -7,6 +7,12 @@ GET     /                           controllers.Application.index()
 POST    /addTask                    controllers.Application.addTask()
 POST    /searchJson                 controllers.Application.searchJson()
 
+# Users
+
+GET     /users/add                  controllers.Users.newUser()
+POST    /users/add                  controllers.Users.addUser()
+GET     /users/allusers             controllers.Users.allUsers()
+
 # login
 GET     /login                      controllers.Users.login()
 POST    /login                      controllers.Users.authenticate()

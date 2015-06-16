@@ -27,5 +27,23 @@ public class Forms extends Controller {
             return null;
         }
     }
+    /** 新規ユーザ用 */
+    public static class newUser {
+	    public Long id;
+        public String name;
+	    public String password;
+        public String email;
+	    public Boolean admin;
+
+  /*    public String validate(){
+            if (User.checkName(name) != null){
+                return "すでに存在しています。";
+            }else if(User.checkEmail(email) != null){
+                return "すでに存在しています。";
+            }
+            return null;
+        } */
+    }
 }
+
 
