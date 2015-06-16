@@ -1,7 +1,22 @@
-@(message: String)
+@(tasks: com.fasterxml.jackson.databind.JsonNode,
+form: Form[Forms.TaskForm],
+selectForm: Form[Forms.SearchForm])
 
-@main("Welcome to Play") {
 
-    @play20.welcome(message, style = "Java")
+@main("さんぷる") {
+<script>
+</script>
+<h1>さんぷる</h1>
 
+@tasks
+
+  <form action="@routes.Application.addTask()" method="post">
+    <input type="text" name="label">
+    <button type="submit">作成</button>
+   </form>
+
+  <form action="@routes.Application.searchJson()" method="post">
+   <p>id</p><input type="text" name="id">
+     <input type="submit" value="検索">
+  </form>
 }

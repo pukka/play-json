@@ -1,0 +1,13 @@
+@(loginForm: Form[Forms.Login])
+
+@main("さんぷる"){
+    <h1>さんぷる</h1>
+    <p>ログインして下さい</p>
+
+    <form action="@routes.Users.authenticate" method="post">
+	<p>メールアドレス</p>
+	<input type="text" name="email">
+	<p>パスワード</p>
+	<input type="password" name="password">
+    </form>
+}
