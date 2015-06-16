@@ -1,7 +1,6 @@
 package controllers;
 
-import controllers.Forms;
-import controllers.routes;
+import controllers.*;
 import play.*;
 import play.mvc.*;
 import views.html.*;
@@ -16,10 +15,12 @@ public class Application extends Controller {
 
     static Form<Forms.SearchForm> searchForm = Form.form(Forms.SearchForm.class);
 
+    @Security.Authenticated(Secured.class)
     public Result index() {
         return ok(index.render(Task.all(),taskForm, searchForm));
     }
 
+    @Security.Authenticated(Secured.class)
     public Result addTask() {
 	Form<Forms.TaskForm>filledForm = taskForm.bindFromRequest();
         Task.create(filledForm.get());
@@ -27,6 +28,7 @@ public class Application extends Controller {
 	return redirect(routes.Application.index());
     }
 
+    @Security.Authenticated(Secured.class)
     public Result searchJson() {
         Form<Forms.SearchForm>filledForm = searchForm.bindFromRequest();
         JsonNode json = Task.selectlabel(filledForm.get());

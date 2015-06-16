@@ -4,6 +4,8 @@ selectForm: Form[Forms.SearchForm])
 
 
 @main("さんぷる") {
+<script>
+</script>
 <h1>さんぷる</h1>
 
 @tasks
@@ -13,7 +15,7 @@ selectForm: Form[Forms.SearchForm])
     <button type="submit">作成</button>
    </form>
 
-<form action="@routes.Application.searchJson()" method="post">
+  <form action="@routes.Application.searchJson()" method="post">
    <p>id</p><input type="text" name="id">
      <input type="submit" value="検索">
   </form>
