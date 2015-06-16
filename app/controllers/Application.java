@@ -50,7 +50,6 @@ public class Application extends Controller {
 
     	return redirect(routes.Application.index());
     }
- }
 
     public Result updateJson() {
     	Form<Forms.UpdateForm>filledForm = updateForm.bindFromRequest();
@@ -63,5 +62,4 @@ public class Application extends Controller {
             return redirect(routes.Application.index());
         }
     }
-
 }
